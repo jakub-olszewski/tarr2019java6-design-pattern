@@ -2,10 +2,12 @@ package pl.sdacademy.design.patterns.structure.decorator.rpggame;
 
 import pl.sdacademy.design.patterns.structure.decorator.rpggame.character.Character;
 import pl.sdacademy.design.patterns.structure.decorator.rpggame.character.Paladin;
+import pl.sdacademy.design.patterns.structure.decorator.rpggame.character.Sorcerer;
 import pl.sdacademy.design.patterns.structure.decorator.rpggame.decorator.AttackDecorator;
 import pl.sdacademy.design.patterns.structure.decorator.rpggame.decorator.DefenceDecorator;
 import pl.sdacademy.design.patterns.structure.decorator.rpggame.decorator.armor.WoodenShield;
 import pl.sdacademy.design.patterns.structure.decorator.rpggame.decorator.weapons.Sword;
+import pl.sdacademy.design.patterns.structure.decorator.rpggame.decorator.weapons.Wand;
 
 /**
  * Dodanie zadań,obowiązków do pojedynczych obiektów, a nie calej klasy.
@@ -36,5 +38,11 @@ public class Main {
 
         paladin = new DefenceDecorator(paladin, new WoodenShield());
         System.out.println(paladin.getDescription());
+
+        Character harryPotter = new Sorcerer("Harry Potter");
+        System.out.println(harryPotter.getDescription());
+
+        harryPotter = new AttackDecorator(harryPotter, new Wand());
+        System.out.println(harryPotter.getDescription());
     }
 }

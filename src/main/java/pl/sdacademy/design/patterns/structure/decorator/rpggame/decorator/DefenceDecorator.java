@@ -8,6 +8,7 @@ import pl.sdacademy.design.patterns.structure.decorator.rpggame.decorator.armor.
  * dodaje do opisu informację
  */
 public class DefenceDecorator extends CharacterDecorator {
+
     Armor armor;
 
     public DefenceDecorator(Character character, Armor armor) {
