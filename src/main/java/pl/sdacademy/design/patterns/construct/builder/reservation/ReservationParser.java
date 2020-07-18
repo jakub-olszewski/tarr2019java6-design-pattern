@@ -13,7 +13,6 @@ public class ReservationParser {
         builder.city(column[2]);
         builder.price(Double.parseDouble(column[3]));
 
-
         return builder.build();
     }
 

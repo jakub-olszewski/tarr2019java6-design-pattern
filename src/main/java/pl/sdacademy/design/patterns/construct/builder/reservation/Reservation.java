@@ -67,27 +67,62 @@ public class Reservation {
         private String city;
         private double price;
 
-        public ReservationBuilder date(LocalDate val) {
-            this.date = val;
+        public ReservationBuilder self(){
             return this;
         }
 
-        public ReservationBuilder headcount(int val) {
-            this.headcount = val;
+        /**
+         * Metody buildera muszą zwracać ReservationBuilder
+         * @param date wartosc daty
+         * @return builder
+         */
+        public ReservationBuilder date(LocalDate date) {
+            this.date = date;
+            return self();
+        }
+
+        /**
+         *
+         * @param count
+         * @return builder
+         */
+        public ReservationBuilder headcount(int count) {
+            this.headcount = count;
             return this;
         }
 
-        public ReservationBuilder city(String val) {
-            this.city = val;
+        public ReservationBuilder city(String cityName) {
+            this.city = cityName;
             return this;
         }
 
-        public ReservationBuilder price(double val) {
-            this.price = val;
+        public ReservationBuilder price(double price) {
+            this.price = price;
             return this;
         }
 
+        /**
+         * Budowanie rezerwacji
+         * @return rezerwacja
+         */
         public Reservation build() {
+            Reservation reservation = new Reservation();
+            reservation.setHeadcount(this.headcount);
+            if(this.city==null){
+                reservation.setCity("Toruń");
+            }else{
+                reservation.setCity(this.city);
+            }
+            reservation.setDate(this.date);
+            reservation.setPrice(this.price);
+            return reservation;
+        }
+
+        /**
+         * Podobnie jak build()
+         * @return rezerwacja
+         */
+        public Reservation toReservation() {
             Reservation reservation = new Reservation();
             reservation.setHeadcount(this.headcount);
             reservation.setCity(this.city);
