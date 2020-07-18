@@ -23,6 +23,10 @@ public class Main {
         Reservation myReservation = ReservationParser.parse(toParse);
         System.out.println(myReservation);
 
+        String rowData = "Jan Kowalski, 01-06-1965, ul. Cwiartki 3/4, 01-001, +48 605 505 404";
+        User user = UserParser.parse(rowData);
+        System.out.println(user);
+
         {
             //Reservation.ReservationBuilder builder = Reservation.builder();
             Reservation.ReservationBuilder builder = new Reservation.ReservationBuilder();
